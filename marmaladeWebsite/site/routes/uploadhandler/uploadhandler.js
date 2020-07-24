@@ -69,7 +69,7 @@ uphandler.post('/',(req, res) => {
 //maybe push to another route to avoid re-auth
 uphandler.use('/success',(req,res) => {
     //console.log("shouldnt be here");
-    res.redirect('/profile');
+    res.redirect('/index.html');
 })
 
 

@@ -22,15 +22,8 @@ app.use('/api/members', require('./routes/api/member')); //api router
 
 app.use('/signup', require('./db/signuphandler').handler); // route to database handler
 app.use('/login', authmiddleware.authcookie, authmiddleware.id, require('./db/loginhandler.js'));
-app.use('/profile', authmiddleware.authcookie, authmiddleware.id, (req, res) =>{
-    console.log(`auth: ${JSON.stringify(req.authenticated.auth)}`);
-    if(req.authenticated.auth){
-        res.sendFile(path.join(__dirname + '/protected/profile.html' ));
-    }
-    else{
-        res.redirect("/unauthorized");
-    }
-})
+app.use('/profile', authmiddleware.authcookie, authmiddleware.id, require('./routes/pictureapi/pictureapi.js'));
+
 app.use("/unauthorized", (req, res) => {
     res.send("Not Logged In");
 })
@@ -74,3 +67,17 @@ app.get('*', (req, res) => {
 
 app.listen(PORT, () => console.log("listening on port: " + PORT));
 //accept="image/*"
+
+/*
+profile
+(req, res) =>{
+    console.log(`auth: ${JSON.stringify(req.authenticated.auth)}`);
+    if(req.authenticated.auth){
+        res.sendFile(path.join(__dirname + '/protected/profile.html' ));
+    }
+    else{
+        res.redirect("/unauthorized");
+    }
+}
+
+*/

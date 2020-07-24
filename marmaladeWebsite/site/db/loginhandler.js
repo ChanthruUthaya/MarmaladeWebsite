@@ -111,7 +111,7 @@ dbhandler.use(async (req, res, next) => {
             sessionMiddleware(req,res,next);
             setTimeout(() => {
                 resolve("session inserted");
-              }, 2000);
+              }, 1000);
         }
         ).then((result)=> console.log(result));
         console.log(`sid is : ${typeof req.sid} 2`);
