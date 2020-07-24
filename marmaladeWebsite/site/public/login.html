@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB>
+<head>
+    <meta charset="UTF-8"/>
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
+    <title>Marmalade</title>
+    <link rel="stylesheet" type="text/css" href="vendors/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="vendors/css/grid.css">
+    <link rel="stylesheet" type="text/css" href="vendors/css/ionicons.min.css">
+    <link rel="stylesheet" type="text/css" href="vendors/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/style.css">
+</head>
+<body>				
+    <header>
+        <nav>
+            <div class="row">
+				<h5>MARMALADE</h5>
+                <ul id="navbar" class="main-nav js--main-nav">
+                </ul>
+            </div>
+        </nav>
+        <div class="signup-header">
+            <h2>Login below.</h2>
+        </div>
+    </header>
+    <script src=./JS/navbar.js>        
+    </script>
+		 <section class="section-form">
+            <div class="row">
+                <form id="myForm" class="contact-form">
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            <input type="email" name="email" id="email" required>
+                        </div>
+                        <div>
+                            <b id ="emailresponse"></b>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label for="password">Password</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            <input type="password" name="password" id="password" required>
+                        </div>
+                        <div>
+                            <b id ="response"></b>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label>&nbsp;</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            <input type="submit" value="Sign up">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <script>
+                const myForm = document.getElementById('myForm');
+
+                myForm.addEventListener('submit', function(event) {
+                    event.preventDefault();
+
+                    const formData = new FormData(this);
+                    const searchParams = new URLSearchParams();
+                    const password = formData.get('password');
+
+                    for (const pair of formData){
+                        searchParams.append(pair[0],pair[1]);
+                    }
+
+                    document.getElementById("myForm").reset();
+                    fetch('/login', {
+                        method: 'POST',
+                        body: searchParams,
+                        credentials: "include" 
+                    }).then(res=> res.json()
+                    ).then((data) => {
+                            console.log(data);
+                            document.getElementById('response').innerHTML = data.message;
+                        }
+                    );
+
+                })
+            </script>
+        </section>
+</body>
+</html>
+								  
+		  
