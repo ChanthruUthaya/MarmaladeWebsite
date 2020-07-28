@@ -24,6 +24,7 @@ picture.get('/', async (req, res) => {
                 return rows;
             }
         }).catch((err) => console.log(err.message));
+        console.log(JSON.stringify(image_path));
         res.json({images:image_path});
         
     }
