@@ -17,18 +17,28 @@ app.use(express.urlencoded({extended: false})); //handle url encoded data
 app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, 'public'))); //static page serving Use to include middleware 'public' is static folder
+app.use(express.static(path.join(__dirname, 'db/uploads')));
 
 app.use('/api/members', require('./routes/api/member')); //api router
 
 app.use('/signup', require('./db/signuphandler').handler); // route to database handler
 app.use('/login', authmiddleware.authcookie, authmiddleware.id, require('./db/loginhandler.js'));
-app.use('/profile', authmiddleware.authcookie, authmiddleware.id, require('./routes/pictureapi/pictureapi.js'));
+
+
+//need to add edit profile and delete profile
+app.use('/profile', authmiddleware.authcookie, authmiddleware.id, (req, res)=>{
+        if(req.authenticated.auth){
+            res.sendFile((path.join(__dirname, 'protected/profile.html')));
+        }
+        else{
+            res.redirect('/unauthorized');
+        }
+    },
+);
 
 app.use("/unauthorized", (req, res) => {
     res.send("Not Logged In");
 })
-
-//need a logout route 
 
 app.use('/logout',authmiddleware.authcookie, authmiddleware.id, require("./db/logouthandler.js"));
 
@@ -50,6 +60,8 @@ app.get("/upload",authmiddleware.authcookie, authmiddleware.id,(req, res)=>{
     }
 })
 
+app.use('/getdata', authmiddleware.authcookie, authmiddleware.id,require('./routes/pictureapi/pictureapi.js'));
+
 app.get('/authenticate',authmiddleware.authcookie, authmiddleware.id, (req, res) => {
     if (req.authenticated.auth){
         res.json({msg:"authenticated"});
@@ -59,6 +71,7 @@ app.get('/authenticate',authmiddleware.authcookie, authmiddleware.id, (req, res)
     }
 });
 
+//need to send upload response
 app.use('/upload/image',authmiddleware.authcookie, authmiddleware.id,require("./routes/uploadhandler/uploadhandler.js"));
 
 app.get('*', (req, res) => {

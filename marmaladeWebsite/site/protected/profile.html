@@ -20,74 +20,29 @@
             </div>
         </nav>
         <div class="signup-header">
-            <h2>Login below.</h2>
+            <h2 id="Username">Profile</h2>
         </div>
     </header>
-    <script src=JS/navbar.js>        
+    <div id="picture">
+
+    </div>
+    <script src=JS/navbar.js>     
     </script>
-		 <section class="section-form">
-            <div class="row">
-                <form id="myForm" class="contact-form">
-                    <div class="row">
-                        <div class="col span-1-of-3">
-                            <label for="email">Email</label>
-                        </div>
-                        <div class="col span-2-of-3">
-                            <input type="email" name="email" id="email" required>
-                        </div>
-                        <div>
-                            <b id ="emailresponse"></b>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col span-1-of-3">
-                            <label for="password">Password</label>
-                        </div>
-                        <div class="col span-2-of-3">
-                            <input type="password" name="password" id="password" required>
-                        </div>
-                        <div>
-                            <b id ="response"></b>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col span-1-of-3">
-                            <label>&nbsp;</label>
-                        </div>
-                        <div class="col span-2-of-3">
-                            <input type="submit" value="Sign up">
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <script>
-                const myForm = document.getElementById('myForm');
+    <script>
+        var frame = document.getElementById("picture");
 
-                myForm.addEventListener('submit', function(event) {
-                    event.preventDefault();
-
-                    const formData = new FormData(this);
-                    const searchParams = new URLSearchParams();
-                    const password = formData.get('password');
-
-                    for (const pair of formData){
-                        searchParams.append(pair[0],pair[1]);
-                    }
-
-                    document.getElementById("myForm").reset();
-                    fetch('/login', {
-                        method: 'POST',
-                        body: searchParams,
-                        credentials: "include" 
-                    }).then(res=> res.json()
-                    ).then((data) => {
-                            console.log(data);
-                            document.getElementById('response').innerHTML = data.message;
-                        }
-                    );
-
-                })
-            </script>
-        </section>
+        fetch('/getdata',{
+            method: 'get',
+        }).then(res=> res.json()
+        ).then((data)=>{
+            for(const image of data.images){
+                var image_name = image.Path.split("\\")[2];
+                var img = document.createElement("img");
+                img.src = image_name;
+                frame.appendChild(img);
+            }
+        }
+        );
+    </script>
 </body>
 </html>

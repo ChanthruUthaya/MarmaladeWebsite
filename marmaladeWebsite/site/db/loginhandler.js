@@ -18,7 +18,7 @@ const { v4: uuidv4 } = require('uuid');
 //     console.log('connected to session database');
 // });
 
-const time = 5*60*1000;
+const time = 60*60*1000;
 
 const sessionStore = new SQLiteStore({
     table:'sessiontable',
@@ -111,7 +111,7 @@ dbhandler.use(async (req, res, next) => {
             sessionMiddleware(req,res,next);
             setTimeout(() => {
                 resolve("session inserted");
-              }, 1000);
+              }, 500);
         }
         ).then((result)=> console.log(result));
         console.log(`sid is : ${typeof req.sid} 2`);
@@ -119,6 +119,7 @@ dbhandler.use(async (req, res, next) => {
         let placeholders = params.map((param) => '?').join(',');
         let sql = 'INSERT INTO sessionmap (sid, PID) VALUES ' + `(${placeholders})`;
         await insertSession(sql, params).then(result => console.log(result)).catch(err => console.log(err.message));
+        console.log("In Login: inserted id");
         }
     else if(req.siteauth && req.authenticated.auth == true){
         console.log(`logged in: ${req.cookies["connect.sid"]}`);
@@ -129,6 +130,7 @@ dbhandler.use(async (req, res, next) => {
   )
 
 dbhandler.use((req, res) => {
+    console.log("In Login: Sending response")
     res.json(req.send_messages[0]); 
 })
 

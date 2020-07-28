@@ -11,17 +11,17 @@ async function authenticate_cookie(req, res, next) {
             let params = [cookie_parse];
             sessdb.get(sql,params, (err, result) => {
                 if(err){
-                    reject("Invalid cookie");
+                    reject("in Authentication: Invalid cookie");
                 }
                 else{
                     resolve(result);
                 }
             })
         }).then((result) => {
-            console.log("found user to authenticate");
+            console.log("in Authentication: found user to authenticate");
             return result;
         }).catch((reason) => console.log(reason));
-        console.log(JSON.stringify(data));
+        console.log(`in Authentication: data ${JSON.stringify(data)}`);
         if(data != undefined){
             if(data.sid === cookie_parse){
                 req.authenticated = {auth:true, cookie:cookie_parse};
@@ -31,7 +31,7 @@ async function authenticate_cookie(req, res, next) {
             }
         }
         else{
-            console.log("it was undefined");
+            console.log("in Authentication: it was undefined");
             req.authenticated = {auth:false};
         }
     }
@@ -48,14 +48,14 @@ async function findId(req, res, next){
             let params = [req.authenticated.cookie];
             sessdb.get(sql,params, (err, result) => {
                 if(err){
-                    reject("No User");
+                    reject("in Authentication: No User");
                 }
                 else{
                     resolve(result);
                 }
             })
         }).then((result) => {
-            console.log("found user ID");
+            console.log("in Authentication: found user ID");
             req.authenticated.id = result.PID;
         }).catch((reason) => console.log(reason));
     }

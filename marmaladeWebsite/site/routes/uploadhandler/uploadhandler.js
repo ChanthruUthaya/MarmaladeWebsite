@@ -65,6 +65,7 @@ uphandler.post('/',(req, res) => {
     })
 })
 
+//need to send upload response
 
 //maybe push to another route to avoid re-auth
 uphandler.use('/success',(req,res) => {
