@@ -1,2 +1,2 @@
-# MarmaladeServer
-Backend for Marmalade website
+# Marmalade 
+Marmalade website for COMS32500 - WEB_TECHNOLOGIES
