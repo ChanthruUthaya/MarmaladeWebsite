@@ -1,9 +1,3 @@
-/*
-Orange color: #e67e22
-
-*/
-
-
 /* ----------------------------------------------- */
 /* BASIC SETUP */
 /* ----------------------------------------------- */
@@ -17,9 +11,9 @@ Orange color: #e67e22
 html,
 body {
     background-color: lightcoral;
-    color: #555;
+    color: #fff;
     font-family:'Work Sans', 'Arial', sans-serif;
-    font-size: 20px;
+    font-size: 16px;
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
 }
@@ -40,7 +34,7 @@ body {
 
 .row {
     max-width: 1400px;
-    margin: 0 auto;
+    margin: 10px;
 }
 
 section {
@@ -92,7 +86,7 @@ h4 {
 
 h5 {
 	text-align: left;
-	font-size: 100%;
+	font-size: 20px;
 	color: #fff;
     width: auto;
     float: left;
@@ -138,7 +132,8 @@ input[type=submit] {
     padding: 10px 30px;
     font-weight: 300;
     text-decoration: none;
-    border-radius: 200px;
+    border-radius: 6px;
+	background-color: lightcoral;
     -webkit-transition: background-color 0.2s, border 0.2s, color 0.2s;
     transition: background-color 0.2s, border 0.2s, color 0.2s;
 }
@@ -162,6 +157,7 @@ input[type=submit] {
 input[type=submit]:hover,
 input[type=submit]:active {
     background-color: #fff;
+	color: lightcoral;
 }
 
 .btn-full:hover,
@@ -190,7 +186,6 @@ header {
 .big-text-box {
 	font-weight:900;
     position: absolute;
-	line-height: 100%
     width: 1140px;
     top: 50%;
     left: 50%;
@@ -199,24 +194,21 @@ header {
     transform: translate(-50%, -50%);
 }
 
-.logo {
-    height: 100px;
-    width: auto;
-    float: left;
-    margin-top: 20px;
-}
-
-.logo-black { 
-    display: none;
-    height: 50px;
-    width: auto;
-    float: left;
-    margin: 5px 0;
+.login {
+	font-weight:500;
+    position: absolute;
+    width: 50%;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 
 /* Main navi */
 .main-nav {
 	font-weight: 800;
+	font-size: 20px;
     float: right;
     list-style: none;
     margin-top: 55px;
@@ -235,8 +227,8 @@ header {
     text-transform: uppercase;
     font-size: 90%;
     border-bottom: 2px solid transparent;
-    -webkit-transition: border-bottom 0.2s;
-    transition: border-bottom 0.2s;
+    -webkit-transition: border-bottom 0.5s;
+    transition: border-bottom 0.5s;
 }
 
 .main-nav li a:hover,
@@ -244,20 +236,12 @@ header {
     border-bottom: 5px solid #fff;
 }
 
-
-/* Mobile navi */
-.mobile-nav-icon {
-    float: right;
-    margin-top: 30px;
-    cursor: pointer;
-    display: none;
+.logo {
+    height: 50px;
+	width: auto;
+    float: left;
+    margin-top: 50px;
 }
-
-.mobile-nav-icon i {
-    font-size: 200%;
-    color: #fff;
-}
-
 
 /* Sticky navi */
 .sticky {
@@ -290,85 +274,6 @@ header {
 }
 
 /* ----------------------------------------------- */
-/* SIGN UP */
-/* ----------------------------------------------- */
-
-.section-signup {
-    padding: 0;
-}
-
-.signup-header{
-	font-weight:900;
-    position: absolute;
-	line-height: 100%
-    width: 1140px;
-    top: 60%;
-    left: 40%;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-}
-
-
-/* ----------------------------------------------- */
-/* SIGN UP */
-/* ----------------------------------------------- */
-
-.section-plans {
-    background-color: #f4f4f4;
-}
-
-.plan-box {
-    background-color: #fff;
-    border-radius: 5px;
-    width: 90%;
-    margin-left: 5%;
-    box-shadow: 0 2px 2px #efefef;
-}
-
-.plan-box div {
-    padding: 15px;
-    border-bottom: 1px solid #e8e8e8;
-}
-
-.plan-box div:first-child {
-    background-color: #fcfcfc;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-}
-
-.plan-box div:last-child {
-    text-align: center;
-    border: 0;
-}
-
-
-.plan-price {
-    font-size: 300%;
-    margin-bottom: 10px;
-    font-weight: 100;
-    color: #fff;
-}
-
-.plan-price span {
-    font-size: 30%;
-    font-weight: 300;
-}
-
-.plan-price-meal {
-    font-size: 80%;
-}
-
-.plan-box ul {
-    list-style: none;
-}
-
-.plan-box ul li {
-    padding: 5px 0;
-}
-
-
-/* ----------------------------------------------- */
 /* FORM */
 /* ----------------------------------------------- */
 
@@ -379,12 +284,15 @@ header {
 
 input[type=text],
 input[type=email],
+input[type=password],
 select,
 textarea {
     width: 100%;
-    padding: 7px;
-    border-radius: 3px;
+    padding: 10px 10px;
+    border-radius: 6px;
     border: 1px solid #fff;
+	background-color: #fff;
+	color: grey;
 }
 
 textarea {
@@ -396,116 +304,4 @@ input[type=checkbox] {
 }
 
 *:focus {outline: none;}
-
-
-/* ----------------------------------------------- */
-/* FOOTER */
-/* ----------------------------------------------- */
-
-footer {
-    background-color: #333;
-    padding: 50px;
-    font-size: 80%;
-}
-
-.footer-nav {
-    list-style: none;
-    float: left;
-}
-
-.social-links {
-    list-style: none;
-    float: right;
-}
-
-.footer-nav li,
-.social-links li {
-    display: inline-block;
-    margin-right: 20px;
-}
-
-.footer-nav li:last-child,
-.social-links li:last-child {
-    margin-right: 0;
-}
-
-.footer-nav li a:link,
-.footer-nav li a:visited, 
-.social-links li a:link,
-.social-links li a:visited {
-    text-decoration: none;
-    border: 0;
-    color: #888;
-    -webkit-transition: color 0.2s;
-    transition: color 0.2s;
-}
-
-.footer-nav li a:hover,
-.footer-nav li a:active {
-    color: #ddd;
-}
-
-.social-links li a:link,
-.social-links li a:visited {
-    font-size: 160%;
-}
-
-.ion-social-facebook,
-.ion-social-twitter,
-.ion-social-googleplus,
-.ion-social-instagram {
-    -webkit-transition: color 0.2s;
-    transition: color 0.2s;
-}
-
-.ion-social-facebook:hover {
-    color: #3b5998;
-}
-
-.ion-social-twitter:hover {
-    color: #00aced;
-}
-
-.ion-social-googleplus:hover {
-    color: #dd4b39;
-}
-
-.ion-social-instagram:hover {
-    color: #517fa4;
-}
-
-
-footer p {
-    color: #888;
-    text-align: center;
-    margin-top: 20px;
-}
-
-
-
-
-/* ----------------------------------------------- */
-/* Animations */
-/* ----------------------------------------------- */
-
-.js--wp-1,
-.js--wp-2,
-.js--wp-3
-{
-    opacity: 0;
-    -webkit-animation-duration: 1s;
-    animation-duration: 1s;
-}
-
-.js--wp-4 {
-    -webkit-animation-duration: 1s;
-    animation-duration: 1s;
-}
-
-.js--wp-1.animated,
-.js--wp-2.animated,
-.js--wp-3.animated {
-    opacity: 1;
-}
-
 
