@@ -48,7 +48,8 @@ section {
 }
 
 .centered {
-  align-self: center;
+  /* align-self: center; */
+  /* margin: auto; */
 }
 
 /* ----- HEADINGS ----- */
@@ -210,6 +211,7 @@ header {
   float: right;
   list-style: none;
   margin-top: 55px;
+  margin-right: 55px;
 }
 
 .main-nav li {
