@@ -1,79 +1,69 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB">
+
 <head>
-    <meta charset="UTF-8"/>
-    <link href="https://fonts.googleapis.com/css?family=Work+Sans:500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
-    <title>Marmalade</title>
-    <link rel="stylesheet" type="text/css" href="vendors/css/normalize.css">
-    <link rel="stylesheet" type="text/css" href="vendors/css/grid.css">
-    <link rel="stylesheet" type="text/css" href="vendors/css/ionicons.min.css">
-    <link rel="stylesheet" type="text/css" href="vendors/css/animate.css">
-    <link rel="stylesheet" type="text/css" href="resources/css/style.css">
+  <meta charset="UTF-8" />
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans:500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
+  <title>Marmalade</title>
+  <link rel="stylesheet" type="text/css" href="vendors/css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="vendors/css/grid.css">
+  <link rel="stylesheet" type="text/css" href="vendors/css/ionicons.min.css">
+  <link rel="stylesheet" type="text/css" href="vendors/css/animate.css">
+  <link rel="stylesheet" type="text/css" href="resources/css/style.css">
 </head>
-<body>				
-    <header>
-        <nav>
-            <div class="row">
-                <ul id="navbar" class="main-nav js--main-nav">
-                </ul>
+
+<body>
+  <header>
+    <nav>
+      <div class="row">
+        <ul id="navbar" class="main-nav js--main-nav">
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <script src=./JS/navbar.js>
+  </script>
+
+  <div class="login">
+    <div class="wrapper">
+      <div>
+        <h2>Sign up for an account<h2>
+      </div>
+      <div class="centered">
+        <form id="myForm" class="contact-form">
+          <div class="row">
+            <input type="text" name="name" id="username" placeholder="Username" required>
+            <div>
+              <b id="nameresponse"></b>
             </div>
-        </nav>
-        <div class="signup-header">
-            <h2>Have an idea you want to share with us? Create an account to get started. </h2>
-        </div>
-    </header>
-    <script src=./JS/navbar.js>        
-	</script>
-		 <section class="section-form">
-            <div class="row">
-                <form id="myForm" class="contact-form">
-                    <div class="row">
-                        <div class="col span-1-of-3">
-                            <label for="name">Name</label>
-                        </div>
-                        <div class="col span-2-of-3">
-                            <input type="text" name="name" id="username" required>
-                        </div>
-                        <div>
-                            <b id="nameresponse"></b>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col span-1-of-3">
-                            <label for="email">Email</label>
-                        </div>
-                        <div class="col span-2-of-3">
-                            <input type="email" name="email" id="email" required>
-                        </div>
-                        <div>
-                            <b id ="emailresponse"></b>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col span-1-of-3">
-                            <label for="password">Password</label>
-                        </div>
-                        <div class="col span-2-of-3">
-                            <input type="password" name="password" id="password" required>
-                        </div>
-                        <div>
-                            <b id ="passwordresponse"></b>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col span-1-of-3">
-                            <label>&nbsp;</label>
-                        </div>
-                        <div class="col span-2-of-3">
-                            <input type="submit" value="Sign up">
-                        </div>
-                    </div>
-                </form>
+          </div>
+          <div class="row">
+            <input type="email" name="email" id="email" placeholder="Email" required>
+            <div>
+              <b id="emailresponse"></b>
             </div>
-            <script src=./JS/signup.js>        
-			</script>
-        </section>
+          </div>
+          <div class="row">
+            <input type="password" name="password" id="password" placeholder="Password" required>
+            <div>
+              <b id="passwordresponse"></b>
+            </div>
+          </div>
+          <div class="row">
+            <input type="submit" value="Sign Up">
+          </div>
+          <div>
+            <b id="response"></b>
+          </div>
+          <div class="centered">
+          </div>
+        </form>
+        <script src=./JS/signup.js>
+        </script>
+
+      </div>
+    </div>
+  </div>
 </body>
+
 </html>
-								  
-		  

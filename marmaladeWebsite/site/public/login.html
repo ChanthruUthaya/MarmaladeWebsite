@@ -1,46 +1,57 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB">
+
 <head>
-    <meta charset="UTF-8"/>
-    <link href="https://fonts.googleapis.com/css?family=Work+Sans:500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
-    <title>Marmalade</title>
-    <link rel="stylesheet" type="text/css" href="vendors/css/normalize.css">
-    <link rel="stylesheet" type="text/css" href="vendors/css/grid.css">
-    <link rel="stylesheet" type="text/css" href="vendors/css/ionicons.min.css">
-    <link rel="stylesheet" type="text/css" href="vendors/css/animate.css">
-    <link rel="stylesheet" type="text/css" href="resources/css/style.css">
+  <meta charset="UTF-8" />
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans:500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
+  <title>Marmalade</title>
+  <link rel="stylesheet" type="text/css" href="vendors/css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="vendors/css/grid.css">
+  <link rel="stylesheet" type="text/css" href="vendors/css/ionicons.min.css">
+  <link rel="stylesheet" type="text/css" href="vendors/css/animate.css">
+  <link rel="stylesheet" type="text/css" href="resources/css/style.css">
 </head>
-<body>				
-	<nav>
-		<div class="row">
-			<ul id="navbar" class="main-nav js--main-nav">
-			</ul>
-		</div>
-	</nav>
-    <script src=./JS/navbar.js>
-	</script>
-	<section class="login">
-		<form id="myForm" class="contact-form">
-			<div class="row">
-				<input type="email" name="email" id="email" placeholder="Email" required>
-				<div>
-					<b id ="emailresponse"></b>
-				</div>
-			</div>
-			<div class="row">
-				<input type="password" name="password" id="password" placeholder="Password" required>
-			</div>
-			<div class="row">
-				<input type="submit" value="Log in">
-			</div>
-			<div>
-				<b id ="response"></b>
-			</div>
-		</form>
-		<script src=./JS/login.js>
-		</script>
-	</section>
+
+<body>
+  <nav>
+    <div class="row">
+      <ul id="navbar" class="main-nav js--main-nav">
+      </ul>
+    </div>
+  </nav>
+  <script src=./JS/navbar.js>
+  </script>
+  <div class="login">
+    <div class="wrapper">
+      <div>
+        <h2>Log in to submit your work for a future fundraiser<h2>
+      </div>
+      <div class="centered">
+        <form id="myForm" class="contact-form">
+          <div class="row">
+            <input type="email" name="email" id="email" placeholder="Email" required>
+            <div>
+              <b id="emailresponse"></b>
+            </div>
+          </div>
+          <div class="row">
+            <input type="password" name="password" id="password" placeholder="Password" required>
+          </div>
+          <div class="row">
+            <input type="submit" value="Log In">
+          </div>
+          <div>
+            <b id="response"></b>
+          </div>
+          <div class="centered">
+            <h5>Not registered? Sign up <a href="signup.html">here</a></h5>
+          </div>
+        </form>
+        <script src=./JS/login.js>
+        </script>
+
+      </div>
+    </div>
+  </div>
 </body>
 </html>
-								  
-		  

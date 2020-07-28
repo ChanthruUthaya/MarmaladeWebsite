@@ -1,5 +1,5 @@
 var options = {
-    set0 : ['<a href="index.html">Home</a>','<a href="signup.html">Contribute</a>','<a href="login.html">Login</a>'],
+    set0 : ['<a href="index.html">Home</a>','<a href="explore.html">Explore</a>','<a href="login.html">Login</a>'],
     set1 : ['<a href="index.html">Home</a>','<a href="/profile">Profile</a>','<a href="/upload">Upload</a>','<a href="/logout">Logout</a>']
 };
 
@@ -56,4 +56,3 @@ if(cookie != ""){
 else{
   makeUL(options.set0);
 }
-
