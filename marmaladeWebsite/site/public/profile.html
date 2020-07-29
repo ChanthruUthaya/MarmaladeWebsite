@@ -20,13 +20,35 @@
         </ul>
       </div>
     </nav>
+    <div class="big-text-box">
+      <h1>profile</h1>
+    </div>
   </header>
-  <div class="left-header">
-    <h1>profile</h1>
+  <div id="picture">
   </div>
   <script src=./JS/navbar.js>
   </script>
+  <script>
+    var frame = document.getElementById("picture");
+    fetch('/getdata', {
+      method: 'get',
+    }).then(res => res.json()).then((data) => {
+      for (const image of data.images) {
+        var image_name = image.Path.split("\\")[2];
+        var img = document.createElement("img");
+        img.src = image_name;
+        frame.appendChild(img);
+      }
+    });
+  </script>
   <div class="wrapper">
+    <div>
+      <h2>
+        We are reinventing how younger communities interact with local, impactful charities
+      </h2>
+    </div>
+    <div>
+      <img src="resources/img/iamarts.png" alt="iamarts">
+    </div>
   </div>
-</body>
 </html>
