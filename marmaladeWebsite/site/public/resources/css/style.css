@@ -41,15 +41,34 @@ section {
   padding: 80px 0;
 }
 
-.wrapper {
+.page {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  /* background:#333; */
+  grid-template-columns: repeat(1, 1fr);
   grid-gap: 4em;
 }
 
+.wrapper {
+  display: grid;
+  /* background:#333; */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 4em;
+}
+
+.wrapper-login {
+  display: grid;
+  height: 200;
+  background:#33;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 1em;
+}
+
 .centered {
-  /* align-self: center; */
-  /* margin: auto; */
+  /* background:#349; */
+  max-width: 400px;
+  margin: 0 auto;
+  position:relative;
+  top: 20px;
 }
 
 /* ----- HEADINGS ----- */
@@ -72,27 +91,28 @@ h1 {
 h2 {
   text-align: left;
   font-size: 300%;
-  margin: 0 5%;
+  margin: 0 auto;
   color: #fff;
 }
 
 h3 {
-  text-align: right;
-  font-size: 300%;
-  margin: 0% 5%;
+  text-align: left;
+  font-size: 200%;
+  margin: 5% 0%;
   color: #fff;
 }
 
 h4 {
   text-align: left;
-  font-size: 300%;
-  margin: 0% 5%;
+  line-height: 50px;
+  font-size: 350%;
+  margin: 5% 0%;
   color: #fff;
 }
 
 h5 {
   font-size: 12px;
-  padding: 10px 10px;
+  padding: 0px 10px;
   color: #fff;
 }
 
@@ -130,8 +150,9 @@ a:active {
 .btn:visited,
 input[type=submit] {
   display: inline-block;
+  margin: 2% auto;
   padding: 10px 30px;
-  font-weight: 300;
+  font-weight: 400;
   text-decoration: none;
   border-radius: 6px;
   background-color: lightcoral;
@@ -193,6 +214,13 @@ header {
   transform: translate(-50%, -50%);
 }
 
+.left-header {
+  font-weight: 900;
+  position: left;
+  width: 1140px;
+
+}
+
 .login {
   font-weight: 500;
   position: absolute;
@@ -209,6 +237,7 @@ header {
   font-weight: 800;
   font-size: 20px;
   float: right;
+  /* position:fixed; */
   list-style: none;
   margin-top: 55px;
   margin-right: 55px;
@@ -217,6 +246,7 @@ header {
 .main-nav li {
   display: inline-block;
   margin-left: 40px;
+  margin-bottom: 20px;
 }
 
 .main-nav li a:link,
@@ -283,8 +313,13 @@ header {
 /* FORM */
 /* ----------------------------------------------- */
 .contact-form {
+  /* background:#349;
   width: 60%;
   margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%); */
 }
 
 input[type=text],
