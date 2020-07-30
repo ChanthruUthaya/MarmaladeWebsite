@@ -13,54 +13,50 @@
 </head>
 
 <body>
-  <page>
-    <nav>
-      <div class="row">
+  <div class="content">
+    <div class="wrapper-two">
+      <div class="spread">
         <ul id="navbar" class="main-nav js--main-nav">
         </ul>
       </div>
-    </nav>
-    <script src=./JS/navbar.js>
-    </script>
-    <div class="login">
-      <div class="wrapper-login">
-        <div class="row">
-          <h4>Submit your artwork for a future fundraiser.</h4>
-        </div>
-        <div class="centered">
-          <form id="myForm" class="contact-form">
-            <div class="row">
-              <input type="text" name="name" id="username" placeholder="Username" required>
-              <div>
-                <b id="nameresponse"></b>
-              </div>
-            </div>
-            <div class="row">
-              <input type="email" name="email" id="email" placeholder="Email" required>
-              <div>
-                <b id="emailresponse"></b>
-              </div>
-            </div>
-            <div class="row">
-              <input type="password" name="password" id="password" placeholder="Password" required>
-              <div>
-                <b id="passwordresponse"></b>
-              </div>
-            </div>
-            <div class="row">
-              <input type="submit" value="Sign Up">
-            </div>
+      <script src=./JS/navbar.js>
+      </script>
+      <div class="spread">
+      </div>
+      <div class="element">
+        <h4>Submit your artwork for a future fundraiser.</h4>
+      </div>
+      <div class="element">
+        <form id="myForm" class="contact-form">
+          <div class="row">
+            <input type="text" name="name" id="username" placeholder="Username" required>
             <div>
-              <b id="response"></b>
+              <b id="nameresponse"></b>
             </div>
-            <h5>Back to <a href="login.html">Log In</a></h5>
-          </form>
-          <script src=./JS/signup.js>
-          </script>
-        </div>
+          </div>
+          <div class="row">
+            <input type="email" name="email" id="email" placeholder="Email" required>
+            <div>
+              <b id="emailresponse"></b>
+            </div>
+          </div>
+          <div class="row">
+            <input type="password" name="password" id="password" placeholder="Password" required>
+            <div>
+              <b id="passwordresponse"></b>
+            </div>
+          </div>
+          <div class="row">
+            <input type="submit" value="Sign Up">
+            <b id="response"></b>
+            <h5>Back to <a href="login.html">log in</a></h5>
+          </div>
+        </form>
+        <script src=./JS/signup.js>
+        </script>
       </div>
     </div>
-  </page>
+  </div>
 </body>
 
 </html>
