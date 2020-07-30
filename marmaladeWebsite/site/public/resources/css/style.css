@@ -45,16 +45,15 @@ body {
 .wrapper-two .big-text-box,
 .wrapper-three .big-text-box {
   padding: 0px 50px;
-  min-height:90vh;
+  min-height: 90vh;
   grid-column: 1 / -1;
-
 }
 
 .wrapper-two .element,
 .wrapper-three .element {
-  background: #444;
+  /* background: #444; */
   max-width: 400px;
-  margin: 0 auto;
+  margin: auto;
   padding: 0px 10vw;
 }
 
@@ -153,7 +152,12 @@ input[type=submit]:hover {
 /* FONTS */
 /* ----------------------------------------------- */
 img {
-  max-width: 500px;
+  max-width: 400px;
+}
+
+.logo {
+  width:50px;
+  position: fixed;
 }
 
 /* ----------------------------------------------- */
@@ -168,7 +172,7 @@ h3 {
 
 h1 {
   text-align: center;
-  font-size: calc(8vw + 30px);
+  font-size: calc(8vw + 20px);
   margin: 25vh auto;
 }
 
