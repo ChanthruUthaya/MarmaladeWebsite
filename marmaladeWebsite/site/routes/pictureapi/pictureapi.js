@@ -47,6 +47,7 @@ picture.get('/', async (req, res) => {
             }
         }).catch((err) => console.log(err.message));
         var response = {images:image_path, username:details};
+        console.log(JSON.stringify(response));
         res.json(response);
         
     }

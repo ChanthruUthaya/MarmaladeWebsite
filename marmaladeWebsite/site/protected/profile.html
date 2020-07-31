@@ -45,6 +45,7 @@
             var image_name = image.Path.split("\\")[2];
             var img = document.createElement("img");
             img.src = image_name;
+            console.log(image_name);
             var button = document.createElement("button");
             button.textContent = 'delete';
             button.id = image.PhotoID.toString();
@@ -60,7 +61,6 @@
             }
             div.appendChild(img);
             div.appendChild(button);
-
             frame.appendChild(div);
         }
     }
