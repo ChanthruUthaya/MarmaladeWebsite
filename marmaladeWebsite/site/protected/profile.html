@@ -20,25 +20,51 @@
       </div>
     </nav>
     <div class="big-text-box">
-      <h1>profile</h1>
+      <h1 id="usertext">profile</h1>
     </div>
   </header>
+  <form method="post" enctype="multipart/form-data" action="/upload/image">
+    <input type="file" name="uploadImage">
+    <input type="submit" value="Submit">
+  </form>
   <div id="picture">
   </div>
   <script src=./JS/navbar.js>
   </script>
   <script>
     var frame = document.getElementById("picture");
-    fetch('/getdata', {
-      method: 'get',
-    }).then(res => res.json()).then((data) => {
-      for (const image of data.images) {
-        var image_name = image.Path.split("\\")[2];
-        var img = document.createElement("img");
-        img.src = image_name;
-        frame.appendChild(img);
-      }
-    });
+    var username = document.getElementById("usertext");
+
+    fetch('/getdata',{
+        method: 'get',
+    }).then(res=> res.json()
+    ).then((data)=>{
+        username.innerHTML = data.username;
+        for(const image of data.images){
+            var div = document.createElement("div");
+            var image_name = image.Path.split("\\")[2];
+            var img = document.createElement("img");
+            img.src = image_name;
+            var button = document.createElement("button");
+            button.textContent = 'delete';
+            button.id = image.PhotoID.toString();
+            const params = new URLSearchParams({
+              id: image.PhotoID,
+              src: image_name
+            });
+            button.onclick = function(){
+              fetch('/delete', {
+                method: 'DELETE',
+                body: params
+              }).then(location.reload())
+            }
+            div.appendChild(img);
+            div.appendChild(button);
+
+            frame.appendChild(div);
+        }
+    }
+    );
   </script>
   <div class="wrapper">
     <div>

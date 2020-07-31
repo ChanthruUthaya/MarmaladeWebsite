@@ -31,7 +31,7 @@ logouthandler.get('/',async (req, res) => {
         res.redirect("/index.html"); 
     }
     else{
-        res.redirect('/unauthorized');
+        res.redirect('/index.html');
     }
 })
 

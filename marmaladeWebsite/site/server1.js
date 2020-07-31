@@ -62,6 +62,8 @@ app.get("/upload",authmiddleware.authcookie, authmiddleware.id,(req, res)=>{
 
 app.use('/getdata', authmiddleware.authcookie, authmiddleware.id,require('./routes/pictureapi/pictureapi.js'));
 
+app.use('/delete', authmiddleware.authcookie, authmiddleware.id,require('./db/deleteimagehandler.js'));
+
 app.get('/authenticate',authmiddleware.authcookie, authmiddleware.id, (req, res) => {
     if (req.authenticated.auth){
         res.json({msg:"authenticated"});
