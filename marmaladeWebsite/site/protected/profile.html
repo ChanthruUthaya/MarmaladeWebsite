@@ -11,71 +11,40 @@
   <link rel="stylesheet" type="text/css" href="vendors/css/animate.css">
   <link rel="stylesheet" type="text/css" href="resources/css/style.css">
 </head>
+
 <body>
-  <header>
-    <nav>
-      <div class="row">
+  <div class="content">
+    <div class="wrapper-sidebar">
+      <div class="spread">
         <ul id="navbar" class="main-nav js--main-nav">
         </ul>
       </div>
-    </nav>
-    <div class="big-text-box">
-      <h1 id="usertext">profile</h1>
+      <script src=./JS/navbar.js>
+      </script>
+      <div class="top">
+        <h4> Welcome back, </h4>
+        <h4 id="usertext">profile</h4>
+        <form method="post" enctype="multipart/form-data" action="/upload/image" class="contact-form">
+          <div class="row">
+            <input type="file" name="uploadImage">
+          </div>
+          <div class="row">
+            <input type="submit" value="Submit">
+          </div>
+        </form>
+      </div>
+      <div class="wrapper-gallery">
+        <img src="resources/img/submissions/_DSC0025.jpg" alt="iamarts" class="element" />
+        <img src="resources/img/submissions/_DSC0219.jpg" alt="iamarts" class="element" />
+        <img src="resources/img/submissions/NUDEFINAL.png" alt="iamarts" class="element" />
+        <img src="resources/img/_DSF2235-2.png" alt="iamarts" class="element" />
+        <div id="picture">
+        </div>
+        <script src="./JS/fetch-picture.js">
+        </script>
+      </div>
     </div>
-  </header>
-  <form method="post" enctype="multipart/form-data" action="/upload/image">
-    <input type="file" name="uploadImage">
-    <input type="submit" value="Submit">
-  </form>
-  <div id="picture" class="wrapper">
   </div>
-  <script src=./JS/navbar.js>
-  </script>
-  <script>
-    var frame = document.getElementById("picture");
-    var username = document.getElementById("usertext");
+</body>
 
-    fetch('/getdata',{
-        method: 'get',
-    }).then(res=> res.json()
-    ).then((data)=>{
-        username.innerHTML = data.username;
-        for(const image of data.images){
-            var div = document.createElement("div");
-            var image_name = image.Path.split("\\")[2];
-            var img = document.createElement("img");
-            img.src = image_name;
-            console.log(image_name);
-            var button = document.createElement("button");
-            button.textContent = 'delete';
-            button.id = image.PhotoID.toString();
-            const params = new URLSearchParams({
-              id: image.PhotoID,
-              src: image_name
-            });
-            button.onclick = function(){
-              fetch('/delete', {
-                method: 'DELETE',
-                body: params
-              }).then(location.reload())
-            }
-            div.appendChild(img);
-            div.appendChild(button);
-            frame.appendChild(div);
-        }
-    }
-    );
-  </script>
-  <div class="wrapper">
-    <div>
-      <h2>
-        We are reinventing how younger communities interact with local, impactful charities
-      </h2>
-    </div>
-    <div>
-      <img src="resources/img/iamarts.png" alt="iamarts">
-    </div>
-  </div>
-  <body>
-  </body>
 </html>

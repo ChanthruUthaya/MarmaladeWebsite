@@ -1,3 +1,5 @@
+"use strict";
+
 var options = {
     set0 : ['<a href="index.html">Home</a>','<a href="explore.html">Explore</a>','<a href="login.html">Login</a>'],
     set1 : ['<a href="index.html">Home</a>','<a href="explore.html">Explore</a>','<a href="/profile">Profile</a>','<a href="/logout">Logout</a>']

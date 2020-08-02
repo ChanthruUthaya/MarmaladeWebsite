@@ -1,3 +1,5 @@
+"use strict";
+
 const myForm = document.getElementById('myForm');
 
 myForm.addEventListener('submit', function(event) {
@@ -15,7 +17,7 @@ myForm.addEventListener('submit', function(event) {
 	fetch('/login', {
 		method: 'POST',
 		body: searchParams,
-		credentials: "include" 
+		credentials: "include"
 	}).then(res=> res.json()
 	).then((data) => {
 			console.log(data);
@@ -27,4 +29,3 @@ myForm.addEventListener('submit', function(event) {
 	);
 
 })
-				
