@@ -42,7 +42,7 @@ body {
 .wrapper-sidebar {
   max-width: 1400px;
   display: grid;
-  grid-template-columns: minmax(200px, 400px) repeat(1, minmax(100px, 1fr));
+  grid-template-columns: minmax(100px, 400px) repeat(1, minmax(100px, 1fr));
   grid-gap: 1em;
 }
 
@@ -91,7 +91,7 @@ body {
 .wrapper-sidebar .top,
 .wrapper-explore .top  {
   /* background: #777; */
-  max-width: 100px;
+  width: 5vw;
   padding-left:2vw;
 }
 
@@ -125,6 +125,51 @@ body {
 .main-nav li a:hover {
   border-bottom: 5px solid #fff;
 }
+
+/* ----------------------------------------------- */
+/* GALLERY */
+/* ----------------------------------------------- */
+.grid {
+  /* background: #EEE; */
+  max-width: 1200px;
+}
+
+/* clearfix */
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+/* ---- grid-item ---- */
+
+.grid-sizer{
+  width: 10%;
+}
+.grid-item {
+  width: 30%;
+}
+
+.grid-item {
+  /* height: 120px; */
+  float: left;
+  /* gutter: 1em; */
+  margin-bottom: 20px;
+  margin-right: 20px;
+  /* background: #D26; */
+  /* border: 2px solid #333; */
+  /* border-color: hsla(0, 0%, 0%, 0.5); */
+  /* border-radius: 5px; */
+}
+
+.grid-item--width2 { width:  40%; }
+.grid-item--width3 { width:  60%; }
+
+.grid-item--height2 { height: 200px; }
+.grid-item--height3 { height: 260px; }
+.grid-item--height4 { height: 360px; }
+
+
 
 /* ----------------------------------------------- */
 /* FORM */

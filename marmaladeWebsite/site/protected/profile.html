@@ -22,7 +22,7 @@
       <script src=./JS/navbar.js>
       </script>
       <div class="top">
-        <h4> Welcome back, </h4>
+        <h4> Welcome backk, </h4>
         <h4 id="usertext">profile</h4>
         <form method="post" enctype="multipart/form-data" action="/upload/image" class="contact-form">
           <div class="row">
@@ -33,16 +33,33 @@
           </div>
         </form>
       </div>
-      <div class="wrapper-gallery">
-        <img src="resources/img/submissions/_DSC0025.jpg" alt="iamarts" class="element" />
-        <img src="resources/img/submissions/_DSC0219.jpg" alt="iamarts" class="element" />
-        <img src="resources/img/submissions/NUDEFINAL.png" alt="iamarts" class="element" />
-        <img src="resources/img/_DSF2235-2.png" alt="iamarts" class="element" />
-        <div id="picture">
+      <div id="picture"class="grid">
+        <div class="grid-item">
+          <img src="resources/img/submissions/_DSC0025.jpg" alt="iamarts" />
         </div>
-        <script src="./JS/fetch-picture.js">
-        </script>
+        <div class="grid-item">
+          <img src="resources/img/submissions/_DSC0219.jpg" alt="iamarts" />
+        </div>
+        <div class="grid-item">
+          <img src="resources/img/submissions/NUDEFINAL.png" alt="iamarts" />
+        </div>
+        <div class="grid-item">
+          <img src="resources/img/_DSF2235-2.png" alt="iamarts" />
+        </div>
+        <div class="grid-item">
+          <img src="resources/img/submissions/_DSC0025.jpg" alt="iamarts" />
+        </div>
+        <div class="grid-item">
+          <img src="resources/img/submissions/_DSC0219.jpg" alt="iamarts" />
+        </div>
+        <div class="grid-item">
+          <img src="resources/img/submissions/NUDEFINAL.png" alt="iamarts" />
+        </div>
       </div>
+      <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+      <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+      <script src="./JS/masonry.js"></script>
+      <script src="./JS/fetch-picture.js"></script>
     </div>
   </div>
 </body>
