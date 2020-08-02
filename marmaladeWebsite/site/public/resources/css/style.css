@@ -144,18 +144,17 @@ body {
 /* ---- grid-item ---- */
 
 .grid-sizer{
-  width: 10%;
+  /* width: 10%; */
 }
 .grid-item {
-  width: 30%;
+  max-width: 30%;
 }
 
 .grid-item {
   /* height: 120px; */
   float: left;
   /* gutter: 1em; */
-  margin-bottom: 20px;
-  margin-right: 20px;
+  margin: 10px 10px;
   /* background: #D26; */
   /* border: 2px solid #333; */
   /* border-color: hsla(0, 0%, 0%, 0.5); */

@@ -8,6 +8,7 @@ fetch('/getdata',{
     username.innerHTML = data.username;
     for(const image of data.images){
         var div = document.createElement("div");
+        div.classList.add('grid-item');
         var image_name = image.Path.split("\\")[2];
         var img = document.createElement("img");
         img.src = image_name;
