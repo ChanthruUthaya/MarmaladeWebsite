@@ -1,7 +1,7 @@
 var frame = document.getElementById("picture");
 var username = document.getElementById("usertext");
 
-fetch('/getdata',{
+fetch('/getdata/profileimage',{
     method: 'get',
 }).then(res=> res.json()
 ).then((data)=>{
@@ -9,7 +9,7 @@ fetch('/getdata',{
     for(const image of data.images){
         var div = document.createElement("div");
         div.classList.add('grid-item');
-        var image_name = image.Path.split("\\")[2];
+        var image_name = image.Path.split(new RegExp("\\\\|/"))[2];
         var img = document.createElement("img");
         img.src = image_name;
         console.log(image_name);

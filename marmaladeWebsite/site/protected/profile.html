@@ -26,7 +26,7 @@
         <h4 id="usertext">profile</h4>
         <form method="post" enctype="multipart/form-data" action="/upload/image" class="contact-form">
           <div class="row">
-            <input type="file" name="uploadImage">
+            <input type="file" name="uploadImage" required>
           </div>
           <div class="row">
             <input type="submit" value="Submit">
@@ -34,22 +34,6 @@
         </form>
       </div>
       <div id="picture" class="grid">
-        <div class="grid-item">
-          <img src="resources/img/submissions/_DSC0025.jpg" alt="iamarts" />
-          <button>delete</button>
-        </div>
-        <div class="grid-item">
-          <img src="resources/img/submissions/_DSC0219.jpg" alt="iamarts" />
-          <button>delete</button>
-        </div>
-        <div class="grid-item">
-          <img src="resources/img/submissions/_DSC0025.jpg" alt="iamarts" />
-          <button>delete</button>
-        </div>
-        <div class="grid-item">
-          <img src="resources/img/submissions/FINAL_BACK_.png" alt="iamarts" />
-          <button>delete</button>
-        </div>
       </div>
       <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
       <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
