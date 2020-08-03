@@ -1,11 +1,12 @@
 var frame = document.getElementById("picture");
 var username = document.getElementById("usertext");
+var grid = document.querySelector('.grid');
 
 fetch('/getdata/profileimage',{
     method: 'get',
 }).then(res=> res.json()
 ).then((data)=>{
-    username.innerHTML = data.username;
+    username.innerHTML = "Welcome, ".concat(data.username).concat(".");
     for(const image of data.images){
         var div = document.createElement("div");
         div.classList.add('grid-item');
@@ -14,6 +15,7 @@ fetch('/getdata/profileimage',{
         img.src = image_name;
         console.log(image_name);
         var button = document.createElement("button");
+        button.classList.add('delete-button');
         button.textContent = 'delete';
         button.id = image.PhotoID.toString();
         const params = new URLSearchParams({
@@ -30,5 +32,21 @@ fetch('/getdata/profileimage',{
         div.appendChild(button);
         frame.appendChild(div);
     }
-}
-);
+    imagesLoaded(grid, function() {
+      console.log('all images are loaded');
+      var msnry = new Masonry(grid, {
+        // itemSelector: '.grid-item',
+        percentPosition: true,
+        // horizontalOrder: true,
+        gutterWidth: 5
+      });
+    });
+});
+
+
+
+// imagesLoaded(grid).on( 'always', function() {
+//   // layout Masonry after each image loads
+//   msnry.reloadItems();
+//   msnry.layout();
+// });
