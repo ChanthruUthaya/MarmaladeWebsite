@@ -7,12 +7,19 @@
   <title>Marmalade</title>
   <link rel="stylesheet" type="text/css" href="vendors/css/normalize.css">
   <link rel="stylesheet" type="text/css" href="vendors/css/grid.css">
-  <link rel="stylesheet" type="text/css" href="vendors/css/ionicons.min.css">
   <link rel="stylesheet" type="text/css" href="vendors/css/animate.css">
   <link rel="stylesheet" type="text/css" href="resources/css/style.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
 <body>
+  <div class="sliding-window">
+  </div>
+  <div class="hero-box">
+    <div class="hero">
+      <img src="resources/img/hero.png" alt="skateboard" class="hero">
+    </div>
+  </div>
   <div class="content">
     <div class="wrapper-two">
       <div class="spread">
@@ -22,40 +29,42 @@
       <script src=./JS/navbar.js>
       </script>
       <div class="big-text-box">
-        <h1>MARMALADE</h1>
-        <!-- <img src="resources/img/iamarts.png" alt="iamarts" cla> -->
       </div>
-      <div class="element">
+      <div class="element" data-aos="fade-right">
         <h4>We are reinventing how younger communities interact with local, impactful charities.</h4>
       </div>
-      <div class="element">
-        <img src="resources/img/iamarts.png" alt="iamarts">
+      <div class="element" data-aos="fade-left">
+        <img src="resources/img/iamarts.png" alt="iamarts"/>
       </div>
       <div class="spread">
       </div>
-      <div class="element">
-        <img src="resources/img/worldshifted.png" alt="iamarts">
+      <div class="element" data-aos="fade-right">
+        <img src="resources/img/worldshifted.png" alt="world-shifted"/>
       </div>
-      <div class="element">
+      <div class="element" data-aos="fade-left">
         <h4>Collaborating with talented student artists, we make clothing to sell at events around Bristol.</h4>
       </div>
       <div class="spread">
       </div>
-      <div class="element">
+      <div class="element" data-aos="fade-right">
         <h4>100% of profits go directly to a local charity which personally impacted the featured artist.</h4>
       </div>
-      <div class="element">
-        <img src="resources/img/iamarts.png" alt="iamarts">
+      <div class="element" data-aos="fade-left">
+        <img src="resources/svg/skateboard.svg" alt="skateboard"/>
       </div>
       <div class="spread">
       </div>
-      <div class="spread">
-        <h3>Do you have an idea for a future fundraiser? <a href="signup.html" class="text">Sign up</a> to submit your artwork for review.</h3>
+      <div class="spread-middle">
+        <h4>Do you have an idea for a future fundraiser? <a href="signup.html" class="text">Sign up</a> to submit your artwork for review.</h4>
       </div>
       <div class="spread">
       </div>
     </div>
   </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TimelineMax.min.js" integrity="sha512-0xrMWUXzEAc+VY7k48pWd5YT6ig03p4KARKxs4Bqxb9atrcn2fV41fWs+YXTKb8lD2sbPAmZMjKENiyzM/Gagw==" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="./JS/animate.js"></script>
 </body>
 
 

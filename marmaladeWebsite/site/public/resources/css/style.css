@@ -3,11 +3,10 @@
 /* ----------------------------------------------- */
 html,
 body {
-  background-color: #f08080;
+  background: linear-gradient(to left, #e99696, #cf5d5d);
   color: #fff;
   font-family: 'Work Sans', 'Arial', sans-serif;
   font-size: 16px;
-  /* overflow-x: hidden; */
 }
 
 /* ----------------------------------------------- */
@@ -20,23 +19,11 @@ body {
 }
 
 .wrapper-two {
-  /* background: #333; */
   position: relative;
   max-width: 1400px;
   display: grid;
-  /* grid-template-columns: 1fr 1fr; */
   grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-  /* grid-auto-rows: minmax(10px, auto); */
   grid-gap: 1em;
-}
-
-.wrapper-three {
-  /* background: #444; */
-  /* position: relative; */
-  max-width: 1400px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 20px;
 }
 
 .wrapper-sidebar {
@@ -47,29 +34,34 @@ body {
 }
 
 .wrapper-two .spread,
-.wrapper-three .spread,
 .wrapper-sidebar .spread {
   padding: 0px 50px;
   min-height: 12vh;
   grid-column: 1 / -1;
 }
 
-.wrapper-two .big-text-box,
-.wrapper-three .big-text-box {
+.wrapper-two .spread-middle,
+.wrapper-sidebar .spread-middle {
+  padding: 0px 50px;
+  min-height: 12vh;
+  grid-column: 1 / -1;
+  max-width: 40vw;
+  margin: auto;
+}
+
+.wrapper-two .big-text-box {
   padding: 0px 50px;
   min-height: 90vh;
   grid-column: 1 / -1;
 }
 
-.wrapper-two .element,
-.wrapper-three .element {
+.wrapper-two .element {
   max-width: 400px;
   margin: auto;
   padding: 0px 5vw;
 }
 
 .wrapper-two .top,
-.wrapper-three .top,
 .wrapper-sidebar .top {
   width: 5vw;
   padding-left: 2vw;
@@ -112,7 +104,6 @@ body {
 .grid {
   max-width: 1200px;
   min-width: 200px;
-  /* overflow-y:auto; */
 }
 
 /* clearfix */
@@ -123,10 +114,8 @@ body {
 }
 
 .grid-item {
-  /* background: #333; */
   max-width: 300px;
   min-width: 200px;
-  /* float: left; */
   margin: 9px 10px;
 }
 /* ----------------------------------------------- */
@@ -144,27 +133,8 @@ select,
 textarea {
   padding: 10px;
   border-radius: 6px;
-  border: 1px solid #fff;
   background-color: #fff;
   color: #848484;
-}
-
-/* ----------------------------------------------- */
-/* LINKS */
-/* ----------------------------------------------- */
-a.text:link,
-a.text:visited {
-  color: #fff;
-  text-decoration: none;
-  padding-bottom: 1px;
-  border-bottom: 1px solid #fff;
-  -webkit-transition: border-bottom 0.2s, color 0.2s;
-  transition: border-bottom 0.2s, color 0.2s;
-}
-
-a.text:hover,
-a.text:active {
-  border-bottom: 1px solid transparent;
 }
 
 .custom-file-input::-webkit-file-upload-button {
@@ -181,7 +151,7 @@ input[type=file] {
   font-weight: 400;
   border: 1px solid #fff;
   border-radius: 6px;
-  background-color: #f08080;
+  background-color: transparent;
   -webkit-transition: background-color 0.2s, border 0.2s, color 0.2s;
   transition: background-color 0.2s, border 0.2s, color 0.2s;
   white-space: nowrap;
@@ -195,9 +165,22 @@ input[type=file] {
   color: #f08080;
 }
 
-.image-link{
-
+/* ----------------------------------------------- */
+/* LINKS */
+/* ----------------------------------------------- */
+a.text:link,
+a.text:visited {
+  color: #fff;
+  text-decoration: none;
+  padding-bottom: 1px;
+  border-bottom: 3px solid #fff;
 }
+
+a.text:hover,
+a.text:active {
+  border-bottom: 3px solid transparent;
+}
+
 /* ----------------------------------------------- */
 /* BUTTONS */
 /* ----------------------------------------------- */
@@ -209,7 +192,7 @@ input[type=submit] {
   font-weight: 400;
   border: 1px solid #fff;
   border-radius: 6px;
-  background-color: #f08080;
+  background-color: transparent;
   -webkit-transition: background-color 0.2s, border 0.2s, color 0.2s;
   transition: background-color 0.2s, border 0.2s, color 0.2s;
 }
@@ -248,9 +231,15 @@ button {
   transition: background-color 0.2s, border 0.2s, color 0.2s;
 }
 
+.delete-button:hover {
+  background-color: #f08080;
+  /* border: 1px solid #f08080; */
+}
+
 /* ----------------------------------------------- */
-/* FONTS */
+/* Images */
 /* ----------------------------------------------- */
+
 img {
   max-width: 100%;
   max-height: 100%;
@@ -259,6 +248,37 @@ img {
 .social{
   width: 20px;
 }
+
+.hero-box {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  max-width: calc(90vh * 1.58);
+}
+
+/* Used for homepage animation */
+.sliding-window{
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background: #fff;
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.hero img {
+  object-fit: cover;
+}
+
 /* ----------------------------------------------- */
 /* FONTS */
 /* ----------------------------------------------- */
@@ -298,6 +318,7 @@ h4 {
 
 h5 {
   /* background: #295; */
+  font-weight: 600;
   font-size: 12px;
   letter-spacing: 0.5px;
   /* padding: 0px 50px; */
