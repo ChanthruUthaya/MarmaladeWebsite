@@ -26,10 +26,11 @@
         <h5>This is your personal profile page.</h5>
         <h5>If you want to contact us directly, here's our <a href = "mailto:saintmarmalade@gmail.com" class="text">email</a></h5>
         <h5>Click <a href="/updatepage" class="text">here</a> to update details</h5>
-        <form method="post" enctype="multipart/form-data" action="/upload/image" class="contact-form">
+        <form id="photoForm" enctype="multipart/form-data" class="contact-form">
           <div class="row">
-            <input type="file" name="uploadImage" required>
+            <input type="file" id="photo" name="uploadImage">
           </div>
+          <b id="response"></b>
           <div class="row">
             <input type="submit" value="Submit">
           </div>
@@ -41,6 +42,7 @@
       <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
       <script src="./JS/masonry.js"></script>
       <script src="./JS/fetch-picture.js"></script>
+      <script src="./JS/submitPhoto.js"></script>
     </div>
   </div>
 </body>
