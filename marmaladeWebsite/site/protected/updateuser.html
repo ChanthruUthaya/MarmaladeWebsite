@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB">
+
+<head>
+  <meta charset="UTF-8" />
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans:500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
+  <title>Marmalade</title>
+  <link rel="stylesheet" type="text/css" href="vendors/css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="vendors/css/grid.css">
+  <link rel="stylesheet" type="text/css" href="vendors/css/ionicons.min.css">
+  <link rel="stylesheet" type="text/css" href="vendors/css/animate.css">
+  <link rel="stylesheet" type="text/css" href="resources/css/style.css">
+</head>
+
+<body>
+  <div class="content">
+    <div class="wrapper-two">
+      <div class="spread">
+        <ul id="navbar" class="main-nav js--main-nav">
+        </ul>
+      </div>
+      <script src=./JS/navbar.js>
+      </script>
+      <div class="spread">
+      </div>
+      <div class="element">
+        <h4>Update User details</h4>
+      </div>
+      <div class="element">
+        <form id="myForm" class="contact-form">
+          <div class="row">
+            <input type="text" name="name" id="username" placeholder="Update Username">
+            <div>
+              <b id="nameresponse"></b>
+            </div>
+          </div>
+          <div class="row">
+            <input type="email" name="email" id="email" placeholder="Update Email">
+            <div>
+              <b id="emailresponse"></b>
+            </div>
+          </div>
+          <div class="row">
+            <input type="submit" value="Update">
+            <b id="response"></b>
+            <h5>Back to <a href="/profile" class="text">profile</a></h5>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script src="./JS/updatedetails.js"></script>
+</body>
+
+</html>

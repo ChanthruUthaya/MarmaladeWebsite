@@ -35,32 +35,41 @@ const upload = multer({
 const errors = {
     'LIMIT_FILE_SIZE': "File too big",
     'LIMIT_FILE_COUNT': "Only allowed to upload 1 file",
-    'LIMIT_UNEXPECTED_FILE' : "Only allowed Jpeg and Png images"
+    'LIMIT_UNEXPECTED_FILE' : "Only allowed Jpeg and Png images",
+    'NO FILE UPLOADED' : "Please select a file to upload",
 }
 
 
 
 uphandler.post('/',(req, res) => {
+    console.log(req.body);
     upload(req, res, async function(err){
         if(err){
             if(err instanceof multer.MulterError){
-                res.send(errors[err.code]);
+                res.json({error:true, message:errors[err.code]});
             }
             else {
-                res.send("upload error");
+                res.json({error:true, message:"Photo unable to upload"});
             }
         }
         else{
             if(req.authenticated.auth){
-                console.log(`id is ${req.authenticated.id}`);
-                console.log(`path is ${req.file.path}`);
-                var params = [req.authenticated.id,req.file.path];
-                let placeholders = params.map((param) => '?').join(',');
-                let sql = 'INSERT INTO photos (Mem_ID, Path) VALUES' + `(${placeholders})`;
-                await insert(sql, params).then(result => console.log(result)).catch(err => console.log(err.message));
+                if(req.file !== undefined){
+                    console.log(req.file);
+                    var params = [req.authenticated.id, req.file.path];
+                    let placeholders = params.map((param) => '?').join(',');
+                    let sql = 'INSERT INTO photos (Mem_ID, Path) VALUES' + `(${placeholders})`;
+                    await insert(sql, params).then(result => console.log(result)).catch(err => console.log(err.message));
+                    res.redirect('/upload/success');
+                }
+                else{
+                    res.json({error:true, message:"Please select a file to upload"});
+                }
             }
-            res.redirect('/upload/image/success');
-            console.log(req.file);
+            else{
+                res.json({error:true, message:"Unauthorized"});
+            }
+            //console.log(req.file);
         }
     })
 })
@@ -70,7 +79,8 @@ uphandler.post('/',(req, res) => {
 //maybe push to another route to avoid re-auth
 uphandler.use('/success',(req,res) => {
     //console.log("shouldnt be here");
-    res.redirect('/profile');
+    res.status(200).json({error:false, message:"Completed upload"});
+    //res.redirect('/profile');
 })
 
 

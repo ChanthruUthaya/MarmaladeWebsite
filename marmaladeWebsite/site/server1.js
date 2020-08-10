@@ -14,21 +14,20 @@ var authmiddleware = require('./routes/authentication/authmiddleware.js');
 //Body Parser Middleware
 app.use(express.json()); //handle raw JSON
 app.use(express.urlencoded({extended: false})); //handle url encoded data
-app.use(cookieParser());
+app.use(cookieParser()); //allow cookie parsing
 
 app.use(express.static(path.join(__dirname, 'public'))); //static page serving Use to include middleware 'public' is static folder
-app.use(express.static(path.join(__dirname, 'db/uploads')));
-
-app.use('/api/members', require('./routes/api/member')); //api router
+app.use(express.static(path.join(__dirname, 'db/uploads')));//static folder for image uploads
 
 app.use('/signup', require('./db/signuphandler').handler); // route to database handler
-app.use('/login', authmiddleware.authcookie, authmiddleware.id, require('./db/loginhandler.js'));
+app.use('/login', authmiddleware.authcookie, authmiddleware.id, require('./db/loginhandler.js')); //route to login handler
 
 
-//need to add edit profile and delete profile
+//profile middleware with cookie authentication
 app.use('/profile', authmiddleware.authcookie, authmiddleware.id, (req, res)=>{
         if(req.authenticated.auth){
-            res.sendFile((path.join(__dirname, 'protected/profile.html')));
+            console.log("profile request");
+            res.status(200).sendFile(path.join(__dirname, 'protected/profile.html'));
         }
         else{
             res.redirect('/unauthorized');
@@ -36,34 +35,21 @@ app.use('/profile', authmiddleware.authcookie, authmiddleware.id, (req, res)=>{
     },
 );
 
+//unauthorized redirect
 app.use("/unauthorized", (req, res) => {
-    res.send("Not Logged In");
+    res.redirect('/index.html');
 })
 
+//logout
 app.use('/logout',authmiddleware.authcookie, authmiddleware.id, require("./db/logouthandler.js"));
 
-app.get("/upload",authmiddleware.authcookie, authmiddleware.id,(req, res)=>{
-    if(req.authenticated.auth){
-        res.set('Content-Type', 'text/html');
-        res.send(Buffer.from(`
-        <form method="post" enctype="multipart/form-data" action="/upload/image">
-            <input type="file" name="uploadImage">
-            <input type="submit" value="Submit">
-        </form>`));
-    }
-    else{
-        res.set('Content-Type', 'text/html');
-        res.send(Buffer.from(`
-        <form action="/login.html">
-            <input type="submit" value="Login" />
-        </form>`))
-    }
-})
-
+//get all photos by a user
 app.use('/getdata', authmiddleware.authcookie, authmiddleware.id,require('./routes/pictureapi/pictureapi.js'));
 
+//delete image
 app.use('/delete', authmiddleware.authcookie, authmiddleware.id,require('./db/deleteimagehandler.js'));
 
+//authenticate cookie
 app.get('/authenticate',authmiddleware.authcookie, authmiddleware.id, (req, res) => {
     if (req.authenticated.auth){
         res.json({msg:"authenticated"});
@@ -73,12 +59,25 @@ app.get('/authenticate',authmiddleware.authcookie, authmiddleware.id, (req, res)
     }
 });
 
-//need to send upload response
-app.use('/upload/image',authmiddleware.authcookie, authmiddleware.id,require("./routes/uploadhandler/uploadhandler.js"));
+//upload photo
+app.use('/upload',authmiddleware.authcookie, authmiddleware.id,require("./routes/uploadhandler/uploadhandler.js"));
 
+app.use('/updatepage', authmiddleware.authcookie, authmiddleware.id, (req, res) =>{
+    if(req.authenticated.auth){
+        res.status(200).sendFile(path.join(__dirname,'protected/updateuser.html'));
+    }
+    else{
+        res.redirect('/unauthorized');
+    }
+})
+
+app.use('/updatedetails',authmiddleware.authcookie, authmiddleware.id, require("./db/updatehandler.js"));
+
+//404 redirect 
 app.get('*', (req, res) => {
     res.status(404).send("Could not find page");
 })
+
 
 app.listen(PORT, () => console.log("listening on port: " + PORT));
 //accept="image/*"

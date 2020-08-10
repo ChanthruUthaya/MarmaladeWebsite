@@ -23,7 +23,7 @@ myForm.addEventListener('submit', function(event) {
 			console.log(data);
 			document.getElementById('response').innerHTML = data.message;
 			if(data.message == "Sign in successful"){
-				setTimeout(location.replace("index.html"), 1000);
+				setTimeout(()=>{window.location.href = '/profile'},1000);
 			}
 		}
 	);
